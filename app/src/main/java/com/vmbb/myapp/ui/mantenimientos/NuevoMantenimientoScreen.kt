@@ -1,9 +1,8 @@
-package com.vmbb.myapp.ui.equipos
+package com.vmbb.myapp.ui.mantenimientos
 
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -38,10 +37,10 @@ fun NuevoMantenimientoScreen(
 ) {
     var fecha by remember { mutableStateOf(LocalDate.now()) }
     var tecnicos by remember { mutableStateOf("") }
-    var tipo by remember { mutableStateOf("correctivo") }
+    var tipo by remember { mutableStateOf("Correctivo") }
     var estado by remember { mutableStateOf("Agendado") }
 
-    val tipos = listOf("correctivo", "preventivo", "instalacion", "verificacion", "retiro", "diagnostico")
+    val tipos = listOf("Correctivo", "Preventivo", "Instalacion", "Verificacion", "Retiro", "Diagnostico")
     val estados = listOf("Agendado", "Cancelado", "Realizado", "En proceso")
 
     Column(modifier = Modifier

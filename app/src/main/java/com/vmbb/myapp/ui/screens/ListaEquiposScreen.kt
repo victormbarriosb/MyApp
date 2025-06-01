@@ -1,4 +1,4 @@
-package com.vmbb.myapp.ui.equipos
+package com.vmbb.myapp.ui.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,6 +21,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.vmbb.myapp.ui.equipos.EquiposViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -60,3 +61,5 @@ fun ListaEquiposScreen(
         }
     }
 }
+
+

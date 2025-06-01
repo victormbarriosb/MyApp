@@ -22,12 +22,12 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.vmbb.myapp.ui.equipos.DetalleEquipoScreen
+import com.vmbb.myapp.ui.screens.DetalleEquipoScreen
 import com.vmbb.myapp.ui.equipos.EditarEquipoScreen
-import com.vmbb.myapp.ui.equipos.EditarMantenimientoScreen
-import com.vmbb.myapp.ui.equipos.ListaEquiposScreen
+import com.vmbb.myapp.ui.mantenimientos.EditarMantenimientoScreen
+import com.vmbb.myapp.ui.screens.ListaEquiposScreen
 import com.vmbb.myapp.ui.equipos.NuevoEquipoScreen
-import com.vmbb.myapp.ui.equipos.NuevoMantenimientoScreen
+import com.vmbb.myapp.ui.mantenimientos.NuevoMantenimientoScreen
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable

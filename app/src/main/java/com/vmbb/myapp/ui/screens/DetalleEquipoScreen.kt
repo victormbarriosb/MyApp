@@ -1,4 +1,4 @@
-package com.vmbb.myapp.ui.equipos
+package com.vmbb.myapp.ui.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -7,19 +7,15 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
-import androidx.compose.material3.Divider
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.vmbb.myapp.ui.mantenimientos.DetalleEquipoViewModel
 
 @Composable
 fun DetalleEquipoScreen(
@@ -60,20 +57,6 @@ fun DetalleEquipoScreen(
             Text("Editar")
         }
         Spacer(modifier = Modifier.height(24.dp))
-        /*Text("Mantenimientos", style = MaterialTheme.typography.titleMedium)
-        LazyColumn {
-            items(mantenimientos) { m ->
-                ListItem(
-                    headlineContent = {
-                        Text("${m.tipo} - ${m.estado}")
-                    },
-                    supportingContent = {
-                        Text("Fecha: ${m.fecha}")
-                    }
-                )
-                Divider()
-            }
-        }*/
 
         val mantenimientos by viewModel.getMantenimientos(serial).collectAsState(emptyList())
 
