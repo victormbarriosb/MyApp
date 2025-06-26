@@ -8,7 +8,7 @@ import androidx.room.Query
 import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 
-@Dao
+/*@Dao
 interface EquipoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(equipo: Equipo)
@@ -24,8 +24,8 @@ interface EquipoDao {
 
     @Update
     suspend fun update(equipo: Equipo)
-}
-@Dao
+}*/
+/*@Dao
 interface MantenimientoDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -48,9 +48,8 @@ interface MantenimientoDao {
 
     @Delete
     suspend fun eliminar(m: Mantenimiento)
-}
-
-@Dao
+}*/
+/*@Dao
 interface RepuestoDao {
     @Query("SELECT * FROM Repuesto WHERE mantenimientoId = :mantenimientoId")
     suspend fun getByMantenimiento(mantenimientoId: Int): List<Repuesto>
@@ -60,4 +59,4 @@ interface RepuestoDao {
 
     @Delete
     suspend fun delete(repuesto: Repuesto)
-}
+}*/

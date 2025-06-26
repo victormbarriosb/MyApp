@@ -21,11 +21,15 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.vmbb.myapp.data.local.database.equipo.Equipo
+import com.vmbb.myapp.data.local.database.equipo.EquipoDao
+import com.vmbb.myapp.data.local.database.mantenimiento.Mantenimiento
+import com.vmbb.myapp.data.local.database.mantenimiento.MantenimientoDao
 
 @Database(
     entities = [Equipo::class,
-                Mantenimiento::class,
-                DataItemType::class],
+        Mantenimiento::class,
+        DataItemType::class],
     version = 1,
     exportSchema = false
 )

@@ -2,10 +2,10 @@ package com.vmbb.myapp.ui.mantenimientos
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.vmbb.myapp.data.local.database.Equipo
-import com.vmbb.myapp.data.local.database.EquipoDao
-import com.vmbb.myapp.data.local.database.Mantenimiento
-import com.vmbb.myapp.data.local.database.MantenimientoDao
+import com.vmbb.myapp.data.local.database.equipo.Equipo
+import com.vmbb.myapp.data.local.database.equipo.EquipoDao
+import com.vmbb.myapp.data.local.database.mantenimiento.Mantenimiento
+import com.vmbb.myapp.data.local.database.mantenimiento.MantenimientoDao
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow

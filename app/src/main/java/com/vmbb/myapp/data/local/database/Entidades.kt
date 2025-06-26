@@ -12,7 +12,7 @@ import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 import java.time.LocalDate
 
-@Entity
+/*@Entity
 data class Equipo(
     @PrimaryKey val serial: String,
     val modelo: String,
@@ -20,9 +20,8 @@ data class Equipo(
     val contrato: String, // "venta", "comodato", "cesion de uso"
     val laboratorio: String,
     val estado: String // "operativo", "fuera de servicio", etc.
-)
-
-@Entity(
+)*/
+/*@Entity(
     foreignKeys = [ForeignKey(
         entity = Equipo::class,
         parentColumns = ["serial"],
@@ -37,7 +36,8 @@ data class Mantenimiento(
     val tecnicos: List<String>,
     val tipo: String, // "correctivo", "preventivo", etc.
     val estado: String // "Agendado", "Cancelado", etc.
-)
+)*/
+/*
 @Entity(
     foreignKeys = [ForeignKey(
         entity = Mantenimiento::class,
@@ -53,3 +53,4 @@ data class Repuesto(
     val cantidad: Int
 )
 
+*/

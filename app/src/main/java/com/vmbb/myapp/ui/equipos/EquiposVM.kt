@@ -2,8 +2,8 @@ package com.vmbb.myapp.ui.equipos
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.vmbb.myapp.data.local.database.Equipo
-import com.vmbb.myapp.data.local.database.EquipoDao
+import com.vmbb.myapp.data.local.database.equipo.Equipo
+import com.vmbb.myapp.data.local.database.equipo.EquipoDao
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.SharingStarted
@@ -18,7 +18,7 @@ class EquiposViewModel @Inject constructor(
     val equipos = dao.getAllFlow().stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
     fun insertarEquipo(equipo: Equipo) {
         viewModelScope.launch(Dispatchers.IO) {
-            dao.insert(equipo)
+            dao.insertar(equipo)
         }
     }
     suspend fun getEquipoBySerialSuspend(serial: String): Equipo? {
@@ -26,7 +26,7 @@ class EquiposViewModel @Inject constructor(
     }
 
     fun actualizarEquipo(equipo: Equipo) = viewModelScope.launch {
-        dao.update(equipo)
+        dao.actualizar(equipo)
     }
 
 }

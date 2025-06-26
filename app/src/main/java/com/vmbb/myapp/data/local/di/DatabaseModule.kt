@@ -25,8 +25,8 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import com.vmbb.myapp.data.local.database.AppDatabase
 import com.vmbb.myapp.data.local.database.DataItemTypeDao
-import com.vmbb.myapp.data.local.database.EquipoDao
-import com.vmbb.myapp.data.local.database.MantenimientoDao
+import com.vmbb.myapp.data.local.database.equipo.EquipoDao
+import com.vmbb.myapp.data.local.database.mantenimiento.MantenimientoDao
 import javax.inject.Singleton
 
 
