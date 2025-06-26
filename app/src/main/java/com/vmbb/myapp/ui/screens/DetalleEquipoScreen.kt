@@ -1,5 +1,6 @@
 package com.vmbb.myapp.ui.screens
 
+import com.vmbb.myapp.R
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -23,9 +24,11 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.vmbb.myapp.ui.elements.IconTextRowCustomIcon
 import com.vmbb.myapp.ui.mantenimientos.DetalleEquipoViewModel
 
 @Composable
@@ -43,6 +46,7 @@ fun DetalleEquipoScreen(
 
     Column(modifier = Modifier.padding(16.dp)) {
         equipo?.let {
+            IconTextRowCustomIcon( painterResource(id = R.drawable.model),it.modelo)
             Text("Modelo: ${it.modelo}")
             Text("Marca: ${it.marca}")
             Text("Contrato: ${it.contrato}")

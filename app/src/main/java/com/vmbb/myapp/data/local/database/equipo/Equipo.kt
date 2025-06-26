@@ -1,7 +1,6 @@
 package com.vmbb.myapp.data.local.database.equipo
 
 import androidx.room.Entity
-import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 @Entity
