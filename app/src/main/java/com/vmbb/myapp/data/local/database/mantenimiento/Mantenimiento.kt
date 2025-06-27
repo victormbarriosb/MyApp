@@ -17,7 +17,7 @@ import java.time.LocalDate
 data class Mantenimiento(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val equipoSerial: String,
-    val fecha: LocalDate,
+    val fecha: String,
     val tecnicos: List<String>,
     val tipo: String, // "correctivo", "preventivo", etc.
     val estado: String // "Agendado", "Cancelado", etc.

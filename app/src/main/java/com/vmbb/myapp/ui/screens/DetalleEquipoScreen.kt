@@ -2,11 +2,14 @@ package com.vmbb.myapp.ui.screens
 
 import com.vmbb.myapp.R
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -14,6 +17,7 @@ import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -23,11 +27,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.vmbb.myapp.formatearFecha
 import com.vmbb.myapp.ui.elements.IconTextRowCustomIcon
 import com.vmbb.myapp.ui.mantenimientos.DetalleEquipoViewModel
 
@@ -46,12 +52,23 @@ fun DetalleEquipoScreen(
 
     Column(modifier = Modifier.padding(16.dp)) {
         equipo?.let {
-            IconTextRowCustomIcon( painterResource(id = R.drawable.model),it.modelo)
-            Text("Modelo: ${it.modelo}")
-            Text("Marca: ${it.marca}")
-            Text("Contrato: ${it.contrato}")
-            Text("Laboratorio: ${it.laboratorio}")
-            Text("Estado: ${it.estado}")
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                IconTextRowCustomIcon( painterResource(id = R.drawable.company),it.marca)
+                IconTextRowCustomIcon( painterResource(id = R.drawable.model),it.modelo)
+            }
+            Spacer(modifier = Modifier.height(5.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ){
+                IconTextRowCustomIcon( painterResource(id = R.drawable.lab),it.laboratorio)
+                IconTextRowCustomIcon( painterResource(id = R.drawable.contract),it.contrato)
+            }
+            Spacer(modifier = Modifier.height(5.dp))
+            IconTextRowCustomIcon( painterResource(id = R.drawable.status),it.estado)
         }
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -74,10 +91,19 @@ fun DetalleEquipoScreen(
                     .clickable { /* ir a editar */ }
             ) {
                 Column(Modifier.padding(8.dp)) {
-                    Text("Fecha: ${m.fecha}")
-                    Text("Tipo: ${m.tipo}")
-                    Text("Estado: ${m.estado}")
-                    Text("Técnicos: ${m.tecnicos}")
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ){
+                        IconTextRowCustomIcon( painterResource(id = R.drawable.gear), m.tipo)
+                        IconTextRowCustomIcon( painterResource(id = R.drawable.status), m.estado)
+                        IconTextRowCustomIcon( painterResource(id = R.drawable.date), m.fecha)
+                    }
+                    Spacer(modifier = Modifier.height(5.dp))
+                    m.tecnicos.forEach { tecnico ->
+                        Spacer(modifier = Modifier.height(5.dp))
+                        IconTextRowCustomIcon( painterResource(id = R.drawable.technician), tecnico)
+                    }
                     Row {
                         IconButton(onClick = { viewModel.eliminar(m) }) {
                             Icon(Icons.Default.Delete, contentDescription = "Eliminar")

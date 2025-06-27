@@ -35,7 +35,7 @@ fun NuevoMantenimientoScreen(
     navController: NavController,
     viewModel: DetalleEquipoViewModel = hiltViewModel()
 ) {
-    var fecha by remember { mutableStateOf(LocalDate.now()) }
+    var fecha by remember { mutableStateOf(LocalDate.now().toString()) }
     var tecnicos by remember { mutableStateOf("") }
     var tipo by remember { mutableStateOf("Correctivo") }
     var estado by remember { mutableStateOf("Agendado") }

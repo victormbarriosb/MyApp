@@ -19,10 +19,16 @@ package com.vmbb.myapp.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBars
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.core.view.WindowCompat
 import dagger.hilt.android.AndroidEntryPoint
 import com.vmbb.myapp.ui.theme.MyApplicationTheme
 
@@ -31,12 +37,17 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Esto permite que el contenido se dibuje detrás de la barra de estado, pero te da control
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
             MyApplicationTheme {
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .consumeWindowInsets(WindowInsets.systemBars)
+                        .padding(WindowInsets.systemBars.asPaddingValues()),
                     color = MaterialTheme.colorScheme.background
-                ) {
+                )  {
                     MainNavigation()
                 }
             }
