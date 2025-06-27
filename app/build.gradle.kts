@@ -25,17 +25,17 @@ plugins {
 }
 
 android {
-    namespace = "com.vmbb.myapp"
+    namespace = "com.vmbb.mantenimiento"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.vmbb.myapp"
+        applicationId = "com.vmbb.mantenimiento"
         minSdk = 21
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "com.vmbb.myapp.HiltTestRunner"
+        testInstrumentationRunner = "com.vmbb.mantenimiento.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }

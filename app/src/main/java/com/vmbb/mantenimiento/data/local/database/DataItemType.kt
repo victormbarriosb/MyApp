@@ -14,20 +14,28 @@
  * limitations under the License.
  */
 
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
-}
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-rootProject.name = "Mantenimiento"
+package com.vmbb.mantenimiento.data.local.database
 
-include(":app")
+import androidx.room.Dao
+import androidx.room.Entity
+import androidx.room.Insert
+import androidx.room.PrimaryKey
+import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
+
+@Entity
+data class DataItemType(
+    val name: String
+) {
+    @PrimaryKey(autoGenerate = true)
+    var uid: Int = 0
+}
+
+@Dao
+interface DataItemTypeDao {
+    @Query("SELECT * FROM dataitemtype ORDER BY uid DESC LIMIT 10")
+    fun getDataItemTypes(): Flow<List<DataItemType>>
+
+    @Insert
+    suspend fun insertDataItemType(item: DataItemType)
+}
